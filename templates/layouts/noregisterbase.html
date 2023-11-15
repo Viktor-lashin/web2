@@ -1,6 +1,8 @@
+{% load static %}
+
 <html lang="en" class="h-100"><head>
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <script src="../static/js/bootstrap.js"></script>
+    <link href="{%static '/css/bootstrap.css'%}" rel="stylesheet">
+    <script src="{%static '/js/bootstrap.js'%}"></script>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -19,7 +21,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="{%static '/css/main.css'%}" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100">
 
@@ -27,33 +29,33 @@
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand name-main" href="">Homework</a>
+      <a class="navbar-brand name-main" href="{% url 'start' 1 %}">Homework</a>
       <div class="collapse navbar-collapse col-8" id="navbarCollapse">
         <form class="d-flex search-main">
-          <button class="btn btn-success" style="margin-right: 30px">ASK!</button>
+          <button class="btn btn-success" style="margin-right: 70px">ASK!</button>
           <input class="form-control me-2 search" type="search" placeholder="Search" aria-label="Search">
         </form>
       </div>
       <div class="col-4 peaple">
         <div class="row">
-          <div class="col-2">
-            <img src="../static/img/defolt.jpg" alt = "" class="img-peaple">
-          </div>
+          <div class="col-2"></div>
           <div class="col-10 inf-peaple">
-            <h2 class="txt-info">V.Pupkin</h2>
-            <a href="" class="set-log-out">settings</a>
-            <a href="" class="set-log-out">log out</a>
+            <a href="{% url 'logIn' %}" class="set-log-out">log in</a>
+            <a href="{% url 'register' %}" class="set-log-out">register</a>
           </div>
         </div>
+      </div>
     </div>
   </nav>
 </header>
-
 <!-- Begin page content -->
 <main class="flex-shrink-0">
   <div class="container">
     <div class="row">
-      <div class="col-9"></div>
+      <div class="col-9">
+          {% block content %}
+          {% endblock %}
+      </div>
       <div class="col-3 panel">
         <div class="row popular-tags">
           <h2 class="popularMain">Popular tags</h2>
@@ -82,12 +84,6 @@
   </div>
 </main>
 
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
-
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script src="{% static '/js/bootstrap.bundle.min.js'%}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body></html>

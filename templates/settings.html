@@ -1,16 +1,14 @@
-{% extends 'layouts/noregisterbase.html' %}
+{% extends 'layouts/base.html' %}
+
+{% load static %}
 
 {% block content %}
-<h1 class="questionMain">Registration</h1>
-    {% block error %}
-    {% endblock %}
+<h1 class="questionMain">Settings</h1>
   <div class="row">
     <div class="col-4">
       <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >Login:</h3>
       <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >Email:</h3>
       <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >NickName:</h3>
-      <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >Password:</h3>
-      <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >Repeat password:</h3>
       <h3 style="font-weight: bold; margin-top: 20px; font-size: 25px" >Upload avatar:</h3>
     </div>
     <div class="col-8">
@@ -23,17 +21,14 @@
       <div><label>
         <textarea type="text" style="margin-top: 20px" rows="1">PupAllWorld</textarea>
       </label></div>
-      <div><label>
-        <textarea type="text" style="margin-top: 20px" rows="1">******</textarea>
-      </label></div>
-      <div><label>
-        <textarea type="text" style="margin-top: 20px" rows="1">******</textarea>
-      </label></div>
+      <img src="{% static '/img/defolt.jpg' %}" alt = "" class="question-image" style="margin-top: 20px; border: 1px solid rgb(128, 128, 128);">
       <div><label>
         <textarea type="text" style="margin-top: 20px" rows="1">C:\defolt.jpg</textarea>
       <button class="btn btn-outline-danger" style="margin-bottom: 22px; font-size: 15px; margin-left: 10px">choose</button>
       </label></div>
-      <a href="{% url 'startReg' 1 %}" class="btn btn-outline-dark" style="margin-top: 10px; font-size: 20px">Register!</a>
+      <a href="{% url 'settingsError' %}" class="btn btn-outline-success" style="margin-top: 10px; font-size: 20px">Save</a>
+        {% block error %}
+        {% endblock %}
     </div>
   </div>
-{% endblock %}
+ {% endblock %}

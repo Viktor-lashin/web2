@@ -1,0 +1,8 @@
+{% extends 'components\listQuestions.html' %}
+
+{% block reg %}
+     <div class="question-title"><a href="{% url 'question' question.id%}">{{question.title}}</a></div>
+{% endblock %}
+      {% block reg1 %}
+          <span class="question-ans"><a href="{% url 'question' question.id%}">answer (3)</a></span>
+      {% endblock %}

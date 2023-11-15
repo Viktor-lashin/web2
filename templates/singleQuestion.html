@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row" style="margin-top: 40px">
+    <div class="col-3">
+        <img src="{% static '/img/defolt.jpg' %}" alt = "" class="question-image">
+    </div>
+    <div class="col-9">
+      <div class="question-title">{{question.title}}</div>
+      <div class="question-text">{{question.content}}</div>
+      <div class="question-ans">
+          <span class="question-ans">Like:</span>
+          <span class="badge bg-danger-subtle question-ans">{{ question.rating }}</span>
+          <a href=""><span class="badge bg-danger question-ans">-</span></a>
+          <a href=""> <span class="badge bg-success question-ans">+</span></a>
+          <span class="question-ans">Tags:</span>
+          {% for tag in question.tags %}
+            <span class="question-ans"><a href="{% url reg tag 1 %}">{{ tag }}</a></span>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+<h1 class="answersMain">Answers:</h1>
+    {% for a in ans %}
+<div class="row question">
+    <div class="col-2">
+       <img src="{% static '/img/defolt.jpg' %}" alt = "" class="img-ans">
+    </div>
+    <div class="col-10">
+      <div class="question-text">{{ a.content }}</div>
+      <div class="question-ans">
+          <span class="question-ans">Like:</span>
+          <span class="badge bg-danger-subtle question-ans">a.rating</span>
+          <a href=""><span class="badge bg-danger question-ans">-</span></a>
+          <a href=""> <span class="badge bg-success question-ans">+</span></a>
+          <label class="btn btn-primary" style="margin-bottom: 5px">
+            <input type="checkbox"> Correct
+          </label>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+<div class="form-group" style="margin-top: 18px">
+  <textarea class="form-control" rows="4">Enter your answer here.</textarea>
+</div>
+<button class="btn btn-outline-secondary" style="margin-left: 8px ;margin-top: 18px; font-size: 20px">Answer</button>
+{% endblock %}
